@@ -21,7 +21,7 @@ def create_post_params(memory):
 
 def log_memory_repeatedly():
 	send_memory_to_server()
-	threading.Timer(10, log_memory_repeatedly).start()
+	threading.Timer(1, log_memory_repeatedly).start()
 
 def check_memory():
 	ps = subprocess.Popen(['ps', '-caxm', '-orss,comm'], stdout=subprocess.PIPE).communicate()[0].decode()
