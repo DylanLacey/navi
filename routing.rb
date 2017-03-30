@@ -4,8 +4,8 @@ require_relative './stat_tracker'
 tracker = StatTracker.new
 
 
-get '/frank-says' do
-  'Put this in your pipe & smoke it!'
+get '/' do
+  'Navi is a tiny stat tracker of no real utility.'
 end
 
 post '/stat/:name' do |name|
