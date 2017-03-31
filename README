@@ -1,0 +1,29 @@
+# Purpose
+Gather statistics from a running Sauce Labs VM.  Intended for Sauce Labs support only and offered with _no guarantees_ of any kind.  Customers: Don't use this.  It might use all your minutes, exceed your concurrency, fail your tests and be mean to your dog, and you'll have bought it upon yourself.
+
+(Also don't write to support asking about this they'll give you blank looks and ask me about it and I'll say it's unsupported and they'll close your ticket and you'll be sad.  I don't want you to be sad.)
+
+# Description
+Navi consists of two parts; the server and the script.
+
+## Server
+The server is run on a known address and serves the script.  It also listens for results and displays them in its log.
+
+The server is all ready to run on Heroku; This is often the easiest way to get it publicaly routable.  You don't even need a sane Ruby runtime to push the script to Heroku.
+
+## Script
+The script is a python script that runs as a prerun executable.  Because it needs to run for the duration of the test, it has to run in the background.  Because it runs in the background, it can't write information to the test logs (ask Miketwo for why if you'd like some shouty despair).
+
+The script runs a terminal command at a regular interval.  The results of that command are then POSTed back to the webserver along with a timestamp.
+
+The script configured currently will check `active`, `free` and `in use` memory for Mac every second.
+
+# Requirements
+## To run on Heroku
+1. A free Heroku account
+2. The [Heroku CMD installed](https://devcenter.heroku.com/articles/heroku-cli)
+
+## To run on another server
+1. Ruby 2.x installed
+2. Bundler installed (with `gem install bundler`)
+3. The host IP or URL known
