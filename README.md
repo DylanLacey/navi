@@ -98,6 +98,7 @@ I can immediately think of how to gather MTR, traceroute and ping data during te
 
 We could also track CPU usage & open files.
 
+logstats.py should be an ERB file so the servername is populated automagically.
 ## Parameterized scripts
 Allow the parameters of the prerun URL to re-configure the supplied script, eg:
 
