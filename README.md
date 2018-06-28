@@ -98,8 +98,6 @@ I can immediately think of how to gather MTR, traceroute and ping data during te
 
 We could also track CPU usage & open files.
 
-For iOS tests, we could hook into instruments and get instrumentation data as the test runs.
-
 ## Parameterized scripts
 Allow the parameters of the prerun URL to re-configure the supplied script, eg:
 
