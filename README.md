@@ -37,7 +37,7 @@ The script configured currently will check `active`, `free` and `in use` memory 
 3. CD into the repo directory
 4. `heroku git:remote -a your_app_name`
 5. `git push heroku master`
-6. The app should be running on `https://your_app_name.heroku.com`
+6. The app should be running on `https://your_app_name.herokuapp.com`
 
 If it deployed successfully, your git output will include:
 
