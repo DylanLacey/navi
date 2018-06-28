@@ -5,10 +5,10 @@ tracker = StatTracker.new
 
 
 get '/' do
-#   'Navi is a tiny stat tracker of no real utility.'
-# end
+  'Navi is a tiny stat tracker of no real utility.'
+end
 
-# get '/memory_script.py' do
+get '/memory_script.py' do
   location = File.join Dir.pwd, 'logstats.py'
   return [200, File.read(location)]
 end
