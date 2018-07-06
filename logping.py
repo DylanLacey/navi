@@ -30,7 +30,7 @@ def log_ping_repeatedly():
 	threading.Timer(5, log_ping_repeatedly).start()
 
 def check_ping(domain):
-	ping_results = subprocess.Popen(['ping', '-c1', '-q', domain], stdout=subprocess.PIPE).communicate()[0].decode()
+	ping_results = subprocess.Popen(['ping', '-c1', domain], stdout=subprocess.PIPE).communicate()[0].decode()
 
 	print ping_results
 	# Just find the results
