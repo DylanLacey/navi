@@ -18,6 +18,7 @@ def post_log(message):
 	print(message)
 	connection = httplib.HTTPSConnection('brasskittens.herokuapp.com')
 	request = connection.request('POST', '/stat/log', urllib.urlencode({'time': t, 'message': message}))
+	print(connection.getresponse().read())
 
 def create_post_params(memory):
 	t = time.ctime()
