@@ -20,14 +20,16 @@ end
 
 post '/stat/:name' do |stat_name|
   case stat_name
-  when "memory"
+  if "memory"
     #logger.debug "Logging #{n}"
     tracker.log params['time'], 'active', params['active']
     tracker.log params['time'], 'free', params['free']
     tracker.log params['time'], 'total', params['total']
     200
-  when "ping"
+  elsif "ping"
     tracker.log params['time'], 'ping result', params['result']
     200
+  else
+
   end 
 end
