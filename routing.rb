@@ -13,10 +13,21 @@ get '/memory_script.py' do
   return [200, File.read(location)]
 end
 
+get '/ping_script.py' do
+  location = File.join Dir.pwd, 'logping.py'
+  return [200, File.read(location)]
+end
+
 post '/stat/:name' do |name|
-  #logger.debug "Logging #{n}"
-  tracker.log params['time'], 'active', params['active']
-  tracker.log params['time'], 'free', params['free']
-  tracker.log params['time'], 'total', params['total']
-  200
+  case name
+  when "memory" do
+    #logger.debug "Logging #{n}"
+    tracker.log params['time'], 'active', params['active']
+    tracker.log params['time'], 'free', params['free']
+    tracker.log params['time'], 'total', params['total']
+    200
+  when "ping"
+    tracker.log params['time'], 'ping result', params['result']
+    200
+  end 
 end
