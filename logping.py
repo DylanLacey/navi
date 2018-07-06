@@ -53,11 +53,12 @@ def check_ping(domain):
 	post_log(stderr)
 	# ping_results = subprocess.Popen(['mtr', domain], stdout=subprocess.PIPE).communicate()[0].decode()
 	post_log("got results")
-	print(stdout)
+	post_log(stdout)
 	# Just find the results
 	result_lines = stdout.split('\n')
 	useful_line = result_lines[4]
 
+	post_log(useful_line)
 	return useful_line
 
 # def check_memory():
