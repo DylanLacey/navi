@@ -15,6 +15,7 @@ def send_ping_to_server(domain):
 	print(connection.getresponse().read())
 
 def post_log(message):
+	print(message)
 	connection = httplib.HTTPSConnection('brasskittens.herokuapp.com')
 	request = connection.request('POST', '/stat/log', urllib.urlencode({'time': t, 'message': message}))
 
