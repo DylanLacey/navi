@@ -7,7 +7,7 @@ import httplib, urllib
 import sys
 
 def send_ping_to_server(domain):
-	print("Inside of Send Ping to Server")
+	post_log("Inside of Send Ping to Server")
 	params = create_post_params(check_ping(domain))
 	print(params)
 	connection = httplib.HTTPSConnection('brasskittens.herokuapp.com')
@@ -15,6 +15,7 @@ def send_ping_to_server(domain):
 	print(connection.getresponse().read())
 
 def post_log(message):
+	t = time.ctime()
 	print(message)
 	connection = httplib.HTTPSConnection('brasskittens.herokuapp.com')
 	request = connection.request('POST', '/stat/log', urllib.urlencode({'time': t, 'message': message}))
