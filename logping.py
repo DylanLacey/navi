@@ -8,7 +8,7 @@ import sys
 
 def send_ping_to_server(domain):
 	params = create_post_params(check_ping(domain))
-	print params
+	print(params)
 	connection = httplib.HTTPSConnection('brasskittens.herokuapp.com')
 	request = connection.request('POST', '/stat/ping', params)
 	print(connection.getresponse().read())
@@ -30,10 +30,11 @@ def log_ping_repeatedly():
 	threading.Timer(5, log_ping_repeatedly).start()
 
 def check_ping(domain):
+	print("Checking again for " + domain)
 	# ping_results = subprocess.Popen(['ping', '-c1', domain], stdout=subprocess.PIPE).communicate()[0].decode()
 	ping_results = subprocess.Popen(['mtr', domain], stdout=subprocess.PIPE).communicate()[0].decode()
 
-	print ping_results
+	print(ping_results)
 	# Just find the results
 	result_lines = ping_results.split('\n')
 	useful_line = result_lines[4]
