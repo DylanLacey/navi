@@ -39,7 +39,7 @@ def log_ping_repeatedly():
 
 def check_ping(domain):
 	post_log("Checking again for " + domain)
-	sub = subprocess.Popen(['/sbin/ping', '-c1', domain], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	sub = subprocess.Popen(['/sbin/ping', '-c5', '-q', domain], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 	# sub.wait()
 	# return_code = sub.returncode
 
@@ -52,13 +52,13 @@ def check_ping(domain):
 	post_log("Any errors?")	
 	post_log(stderr)
 	# ping_results = subprocess.Popen(['mtr', domain], stdout=subprocess.PIPE).communicate()[0].decode()
-	post_log("got results")
-	post_log(stdout)
+	# post_log("got results")
+	# post_log(stdout)
 	# Just find the results
 	result_lines = stdout.split('\n')
 	useful_line = result_lines[4]
 
-	post_log(useful_line)
+	post_log("Found: " + useful_line)
 	return useful_line
 
 # def check_memory():
