@@ -18,8 +18,8 @@ get '/ping_script.py' do
   return [200, File.read(location)]
 end
 
-post '/stat/:name' do |name|
-  case name do
+post '/stat/:name' do |stat_name|
+  case stat_name
   when "memory"
     #logger.debug "Logging #{n}"
     tracker.log params['time'], 'active', params['active']
