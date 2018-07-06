@@ -32,12 +32,23 @@ def log_ping_repeatedly():
 
 def check_ping(domain):
 	print("Checking again for " + domain)
-	ping_results = subprocess.Popen(['ping', '-c1', domain], stdout=subprocess.PIPE, stderr=subprocess.STDOUT).communicate()[0].decode()
+	sub = subprocess.Popen(['ping', '-c1', domain], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	sub.wait()
+	return_code = sub.returncode
+
+	print("Returncode from Subprocess was {}".format(return_code))
+
+	subprocess_pipes = sub.communicate()
+	stdout = subprocess_pipes[0].decode()
+	stderr = subprocess_pipes[1].decode()
+
+	print("Any errors?")	
+	print(stderr)
 	# ping_results = subprocess.Popen(['mtr', domain], stdout=subprocess.PIPE).communicate()[0].decode()
 	print("got results")
-	print(ping_results)
+	print(stdout)
 	# Just find the results
-	result_lines = ping_results.split('\n')
+	result_lines = stdout.split('\n')
 	useful_line = result_lines[4]
 
 	return useful_line
