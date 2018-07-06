@@ -34,7 +34,7 @@ def check_ping(domain):
 	print("Checking again for " + domain)
 	ping_results = subprocess.Popen(['ping', '-c1', domain], stdout=subprocess.PIPE).communicate()[0].decode()
 	# ping_results = subprocess.Popen(['mtr', domain], stdout=subprocess.PIPE).communicate()[0].decode()
-
+	print("got results")
 	print(ping_results)
 	# Just find the results
 	result_lines = ping_results.split('\n')
