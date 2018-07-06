@@ -19,8 +19,8 @@ get '/ping_script.py' do
 end
 
 post '/stat/:name' do |name|
-  case name
-  when "memory" do
+  case name do
+  when "memory"
     #logger.debug "Logging #{n}"
     tracker.log params['time'], 'active', params['active']
     tracker.log params['time'], 'free', params['free']
