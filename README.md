@@ -16,7 +16,9 @@ The script is a python script that runs as a prerun executable.  Because it need
 
 The script runs a terminal command at a regular interval.  The results of that command are then POSTed back to the webserver along with a timestamp.
 
-The script configured currently will check `active`, `free` and `in use` memory for Mac every second.
+The script configured currently will ping a domain 5 times every 5 seconds.  You'll need to pass the domain as the first argument to the prerun executable.  Load `ping_script.py`
+
+The script can also check `active`, `free` and `in use` memory for Mac every second; load `memory_script.py`
 
 # Requirements
 ## To run on Heroku
