@@ -28,6 +28,8 @@ post '/stat/:name' do |stat_name|
   elsif stat_name == "ping"
     tracker.log params['time'], 'ping result', params['result']
     200
+  elsif stat_name == "log"
+    tracker.log params['time'], "log_message", params['log']
   else
 
   end 
