@@ -32,6 +32,7 @@ def log_ping_repeatedly():
 def check_ping(domain):
 	ping_results = subprocess.Popen(['ping', '-c1', '-q', domain], stdout=subprocess.PIPE).communicate()[0].decode()
 
+	print ping_results
 	# Just find the results
 	result_lines = ping_results.split('\n')
 	useful_line = result_lines[4]
