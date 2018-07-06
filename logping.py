@@ -32,7 +32,7 @@ def log_ping_repeatedly():
 
 def check_ping(domain):
 	print("Checking again for " + domain)
-	sub = subprocess.Popen(['ping', '-c1', domain], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	sub = subprocess.Popen(['/sbin/ping', '-c1', domain], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 	sub.wait()
 	return_code = sub.returncode
 
