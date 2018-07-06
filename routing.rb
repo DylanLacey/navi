@@ -19,14 +19,13 @@ get '/ping_script.py' do
 end
 
 post '/stat/:name' do |stat_name|
-  case stat_name
-  if "memory"
+  if stat_name == "memory"
     #logger.debug "Logging #{n}"
     tracker.log params['time'], 'active', params['active']
     tracker.log params['time'], 'free', params['free']
     tracker.log params['time'], 'total', params['total']
     200
-  elsif "ping"
+  elsif stat_name == "ping"
     tracker.log params['time'], 'ping result', params['result']
     200
   else
