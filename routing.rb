@@ -30,6 +30,8 @@ post '/stat/:name' do |stat_name|
     200
   elsif stat_name == "log"
     tracker.log params['time'], "log_message", params['message']
+  elsif stat_name == "domain"
+    tracker.log params['time'], "trace", params['route_data']
   else
 
   end 
