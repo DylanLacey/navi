@@ -18,6 +18,11 @@ get '/ping_script.py' do
   return [200, File.read(location)]
 end
 
+get '/trace_script.py' do
+  location = File.join Dir.pwd, 'logtrace.py'
+  return [200, File.read(location)]
+end
+
 post '/stat/:name' do |stat_name|
   if stat_name == "memory"
     #logger.debug "Logging #{n}"
