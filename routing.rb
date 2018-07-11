@@ -36,7 +36,7 @@ post '/stat/:name' do |stat_name|
   elsif stat_name == "log"
     tracker.log params['time'], "log_message", params['message']
   elsif stat_name == "domain"
-    param_lines = params['route_data'].split
+    param_lines = params['route_data'].split('\n')
     param_lines.each do |line|
       tracker.log params['time'], "trace", line
     end
