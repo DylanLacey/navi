@@ -30,7 +30,8 @@ def log_traceroute_repeatedly():
 	threading.Timer(5, log_traceroute_repeatedly).start()
 
 def check_traceroute(domain):
-	traceroute_results = subprocess.Popen(['traceroute', domain], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	post_log("Here we go")
+	traceroute_results = subprocess.Popen(['/usr/sbin/traceroute', domain], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 	# sub.wait()
 	# return_code = sub.returncode
 
