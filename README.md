@@ -60,7 +60,7 @@ Check the application logs at `https://dashboard.heroku.com/apps/your_app_name/l
 ## Setting up the Sauce Labs test
 Set the `prerun` desired capability, ensuring it runs in the background:
 
-`caps['prerun'] = {executable: 'https://your_app_name.heroku.com/memory_script', background: true}`
+`caps['prerun'] = {executable: 'https://your_app_name.heroku.com/memory_script.py', background: true}`
 (Example for Ruby)
 
 ## Run It
